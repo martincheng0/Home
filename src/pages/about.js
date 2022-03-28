@@ -25,7 +25,7 @@ const AboutPage = ({ data }) => {
           </div>
           <div className="border rounded-xl border-black w-9/12 mx-auto p-4">
             <a href={repo.url}>
-              <h1 className="py-3 font-mono">{repo.object.entries[0].name}</h1>
+              <p className="py-3 font-mono">{repo.object.entries[0].name}</p>
             </a>
             <ReactMarkdown>{repo.object.entries[0].object.text}</ReactMarkdown>
           </div>

@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer base {
+    pre {
+      @apply overflow-auto overflow-x-auto bg-slate-100 p-4 m-2 rounded-md;
+    }
+    h1 {
+      @apply text-3xl font-semibold my-3
+    }
+
+    h2 {
+      @apply text-2xl font-medium my-3
+      }
+  }
