@@ -5,15 +5,15 @@ import SEO from '../components/seo'
 import PostCard from '../components/PostCard'
 
 const BlogPage = ({ data }) => {
-  const posts = data.hashnode.user.publication.posts
+  const user = data.hashnode.user
 
   return (
     <>
-      <SEO title="About" description="something technical" image={posts[0].author.photo}/>
+      <SEO title="About" description="something technical" image={user.photo}/>
       <Layout>
         <div className="py-20">
           <section>
-            {posts.map((node) => (
+            {user.publication.posts.map((node) => (
               <PostCard key={node._id} post={node} />
             ))}
           </section>
@@ -29,6 +29,8 @@ export const pageQuery = graphql`
   query PostQuery {
     hashnode {
       user(username: "martincheng0") {
+        name
+        photo
         publication {
           posts {
             _id
@@ -43,10 +45,6 @@ export const pageQuery = graphql`
             coverImage
             dateUpdated
             contentMarkdown
-            author {
-              name
-              photo
-            }
           }
         }
       }
